@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+        "baseUrl": "./",
+        "target": "ESNext",
+        "module": "ESNext",
+        "strict": false,
+        "jsx": "preserve",
+        "allowSyntheticDefaultImports":false,
+        "moduleResolution": "node",
+        "types": [
+            "vite/client",
+            "element-plus/global"
+        ],      
+        "paths": {
+            "@/*":["src/*"]
+        }
+    },
+    "exclude": [
+        "node_modeules",
+        "dist"
+    ]
+}
