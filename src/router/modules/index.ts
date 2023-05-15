@@ -13,7 +13,7 @@ const RouterList: Array<RouteRecordRaw>=[
           {
             path: '/index/index11',
             name: 'index11',
-            component: () => import('@/views/index1.vue'),
+            component: () => import('@/views/index.vue'),
             meta: {
               title: '测试1',
               hidden: true

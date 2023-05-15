@@ -4,9 +4,4 @@ declare module '*.vue' {
     const component: DefineComponent<{}, {}, any>
     export default component
 }
-interface Window {
-    AMap:any,
-    api: any
-  
-  }
 declare var process:NodeJS.Process

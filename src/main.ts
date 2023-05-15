@@ -1,9 +1,12 @@
 import { createApp } from 'vue';
 import App from './App.vue';
 import './utils';
+import './utils/request';
 
 const app = createApp(App);
-
+// 注册接口
+import api from '@/api';
+app.use(api);
 import router from './router';
 app.use(router);
 // 全局样式

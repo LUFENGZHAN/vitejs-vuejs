@@ -5,7 +5,7 @@ const baseURL = import.meta.env.VITE_API
 const common = axios.create({ baseURL, timeout: 500 });
 common.interceptors.request.use(
     (config) => { 
-        let token = localStorage.getItem("token")
+        let token = sessionStorage.getItem("token")
         if (token && config.headers) {
             config.headers['token'] = token
         }
