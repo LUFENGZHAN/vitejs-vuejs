@@ -1,7 +1,7 @@
 import { ElMessage } from 'element-plus'
 import axios from "axios";
 const codeis = [0,200]
-const baseURL = import.meta.env.VITE_API
+const baseURL = import.meta.env.VITE_API || window.location.origin
 const common = axios.create({ baseURL, timeout: 500 });
 common.interceptors.request.use(
     (config) => { 
