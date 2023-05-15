@@ -22,6 +22,7 @@ let userinfo: any = reactive({
 })
 const router = useRouter()
 const go = ()=>{
+    sessionStorage.clear()
     router.push({ path: '/login' })
 }
 const circleUrl = ref('https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png')

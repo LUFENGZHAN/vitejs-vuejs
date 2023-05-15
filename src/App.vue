@@ -1,12 +1,11 @@
 <template>
         <keep-alive v-if="config.router.keepAlive">
-            <layout ></layout>
+            <router-view />
         </keep-alive>
-        <layout v-else />
+        <router-view v-else/>
 </template>
 
 <script lang='ts' setup>
-import layout from '@/components/layout/index.vue'
 import config from './config'
 </script>
 

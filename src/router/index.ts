@@ -45,7 +45,6 @@ router.beforeEach((to, from, next) => {
       return next('/error')
     }
     config.router.is_page = to.fullPath !== '/'
-    config.router.login = to.fullPath == ('/login' || '/error')
     if (to.meta?.title) document.title = to.meta.title as any
     if (config.layout.is_login) {
       if (sessionStorage.getItem('token')) {

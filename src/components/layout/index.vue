@@ -1,5 +1,5 @@
 <template>
-    <el-container class="layout-container-demo" v-if=" !is_log">
+    <el-container class="layout-container-demo">
         <el-aside width="200px">
             <el-scrollbar>
                 <div class="layout">
@@ -19,7 +19,6 @@
             </el-main>
         </el-container>
     </el-container>
-    <router-view v-else />
 </template>
   
 <script lang="ts" setup>
