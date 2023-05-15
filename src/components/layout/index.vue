@@ -1,5 +1,5 @@
 <template>
-    <el-container class="layout-container-demo" v-if="!config.router.login && is_log">
+    <el-container class="layout-container-demo" v-if=" !is_log">
         <el-aside width="200px">
             <el-scrollbar>
                 <div class="layout">
@@ -27,13 +27,13 @@ import config from "@/config";
 import leftLayout from "./leftLayout/index.vue"
 import navbar from "./navbar/index.vue"
 const is_page = ref(config.router.is_page)
-const is_log = ref(false)
+const is_log = ref(config.router.login)
 onMounted(() => {
 })
 setInterval(() => {
     nextTick(() => {
         is_page.value = config.router.is_page
-        is_log.value = (/login | error/g).test(window.location.hash) || true
+        is_log.value = config.router.login
     })
 }, 200)
 
