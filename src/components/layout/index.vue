@@ -1,11 +1,11 @@
 <template>
-    <el-container class="layout-container-demo">
+    <el-container class="layout-container-demo" v-if="!config.router.login && is_log">
         <el-aside width="200px">
             <el-scrollbar>
                 <div class="layout">
-                    <p>{{config.layout.title}}</p>
+                    <p>{{ config.layout.title }}</p>
                 </div>
-                <leftLayout/>
+                <leftLayout />
             </el-scrollbar>
         </el-aside>
         <el-container>
@@ -13,38 +13,51 @@
                 <navbar />
             </el-header>
             <el-main>
-                <router-view />
+                <transition name="fade-transform" mode="out-in">
+                    <router-view v-if="is_page" />
+                </transition>
             </el-main>
         </el-container>
     </el-container>
+    <router-view v-else />
 </template>
   
 <script lang="ts" setup>
 import config from "@/config";
 import leftLayout from "./leftLayout/index.vue"
 import navbar from "./navbar/index.vue"
-
+const is_page = ref(config.router.is_page)
+const is_log = ref(false)
 onMounted(() => {
-
 })
+setInterval(() => {
+    nextTick(() => {
+        is_page.value = config.router.is_page
+        is_log.value = (/login | error/g).test(window.location.hash) || true
+    })
+}, 200)
+
 </script>
   
 <style scoped lang="less">
 .layout-container-demo {
     height: calc(100vh - 30px);
-    .layout{
+
+    .layout {
         height: 60px;
         display: flex;
         font-size: 25px;
         align-items: center;
         background-color: darkgray;
         justify-content: space-around;
-        & >p{
+
+        &>p {
             padding: 0;
             margin: 0;
         }
     }
 }
+
 .layout-container-demo .el-menu {
     border-right: none;
 }
@@ -64,5 +77,6 @@ onMounted(() => {
     justify-content: center;
     height: 100%;
     right: 20px;
-}</style>
+}
+</style>
   

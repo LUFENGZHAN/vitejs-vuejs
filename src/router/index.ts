@@ -41,6 +41,10 @@ const router = createRouter({
 })
 router.beforeEach((to, from, next) => {
   try {
+    if (to.matched && to.matched.length  === 0) {
+      return next('/error')
+    }
+    config.router.is_page = to.fullPath !== '/'
     if (to.meta?.title) document.title = to.meta.title as any
     if (config.router.login) {
       if (sessionStorage.getItem('token')) {
