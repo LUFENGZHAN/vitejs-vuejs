@@ -9,7 +9,7 @@
                 </el-dropdown-menu>
             </template>
         </el-dropdown>
-        <el-icon style="margin-right: 8px;outline: none; margin-top: 1px">
+        <el-icon style="margin-right: 0px;outline: none; margin-top: 1px">
             <ArrowDown />
         </el-icon>
     </div>
@@ -39,7 +39,7 @@ onMounted(() => {
 span{
     outline: none;
     cursor: pointer;
-    margin:0 8px;
+    margin:0 5px 0 0px;
     color: #000;
     font-size: var(--font-size);
 }
