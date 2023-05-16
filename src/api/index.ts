@@ -8,16 +8,10 @@ declare global {
         api: typeof api;
     }
 }
-import '@vue/runtime-core';
-
-declare module '@vue/runtime-core' {
-    export interface ComponentCustomProperties {
-        api: typeof api;
-    }
-}
 export default {
     install(app: App<Element>) {
         app.config.globalProperties.api = api;
         window.api = api;
     },
 };
+

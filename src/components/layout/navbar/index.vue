@@ -29,7 +29,6 @@ const circleUrl = ref('https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726
 onMounted(() => {
     if (sessionStorage.getItem('userinfo')) {
         let name = JSON.parse(sessionStorage.getItem('userinfo'))
-        console.log(name);
         userinfo.name = name.name
     }
 })
