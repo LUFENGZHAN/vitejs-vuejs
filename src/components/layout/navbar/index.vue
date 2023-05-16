@@ -18,7 +18,7 @@
 <script lang='ts' setup>
 import { useRouter } from 'vue-router';
 let userinfo: any = reactive({
-    name: '测试'
+    name: '管理员'
 })
 const router = useRouter()
 const go = ()=>{
@@ -28,8 +28,9 @@ const go = ()=>{
 const circleUrl = ref('https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png')
 onMounted(() => {
     if (sessionStorage.getItem('userinfo')) {
-        let name = JSON.stringify(sessionStorage.getItem('userinfo'))
-        userinfo = name
+        let name = JSON.parse(sessionStorage.getItem('userinfo'))
+        console.log(name);
+        userinfo.name = name.name
     }
 })
 </script>

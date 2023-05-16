@@ -19,6 +19,7 @@ common.interceptors.response.use(
             return config.data      
         } else {
             if (config.data.code == 401) {
+                window.sessionStorage.clear()
                 useRouter.push({path:'/login'})
             }
             return ElMessage.error(config.data.message) 

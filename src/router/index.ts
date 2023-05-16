@@ -11,7 +11,7 @@ const routes = [
 			title: '后台管理',
 			layout: true
 		},
-		redirect: '/index3'
+		redirect: '/system/system'
 	},
 	{
 		path: '/login',

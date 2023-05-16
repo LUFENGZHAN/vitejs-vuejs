@@ -25,7 +25,7 @@
 <script lang='ts' setup>
 import router from '@/router';
 import { Menu as IconMenu, Message, Setting } from '@element-plus/icons-vue'
-const defaultOpeneds = ref(['/index/index11'])
+const defaultOpeneds = ref(['system'])
 
 const routesLink = ref<any>([])
 
