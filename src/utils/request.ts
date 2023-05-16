@@ -1,4 +1,5 @@
 import { ElMessage } from 'element-plus'
+import useRouter from '@/router';
 import axios from "axios";
 const codeis = [0,200]
 const baseURL = import.meta.env.VITE_API || window.location.origin
@@ -17,7 +18,10 @@ common.interceptors.response.use(
         if (codeis.includes(config.data.code)) {
             return config.data      
         } else {
-            return ElMessage.error('接口错误') 
+            if (config.data.code == 401) {
+                useRouter.push({path:'/login'})
+            }
+            return ElMessage.error(config.data.message) 
         }
     }
 )

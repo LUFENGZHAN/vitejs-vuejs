@@ -10,7 +10,7 @@
 import { useRouter } from 'vue-router';
 const router = useRouter()
 const login = ()=>{
-    sessionStorage.setItem('toekn', 'login')
+    sessionStorage.setItem('token', 'login')
     router.push({ path: '/' })
 }
 </script>

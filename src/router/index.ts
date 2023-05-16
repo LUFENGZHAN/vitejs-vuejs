@@ -9,9 +9,9 @@ const routes = [
 		component: () => import('@/components/layout/index.vue'),
 		meta: {
 			title: '后台管理',
-			layout: false
+			layout: true
 		},
-		redirect:'/index3'
+		redirect: '/index3'
 	},
 	{
 		path: '/login',
@@ -42,18 +42,19 @@ const router = createRouter({
 })
 router.beforeEach((to, from, next) => {
 	try {
+		const toekn = window.sessionStorage.getItem('token')
 		if (to.meta?.title) document.title = to.meta.title as any
 		if (to.matched && to.matched.length == 0) {
 			return next('/error')
 		}
-		if (config.layout.is_login) {
-			if (sessionStorage.getItem('token') && to.name != 'login') {
-				return next();
+		if (config.router.login) {
+			if (Boolean(toekn)) {
+				next()
+			} else {
+				if (to.path == '/login') return next()
+				next('/login')
 			}
-			if (sessionStorage.getItem('token') && to.name == 'login') {
-				return next('/login');
-
-			}
+		} else {
 			next();
 		}
 	} catch {
