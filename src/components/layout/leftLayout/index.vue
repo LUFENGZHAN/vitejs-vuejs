@@ -3,9 +3,9 @@
         <template v-for="(item, i) in routesLink" :key="i">
             <el-sub-menu v-if="item.children && item.children.length > 0" :index="item.name">
                 <template #title>
+                    <el-icon v-if="config.layout.is_ion"><Menu /></el-icon>
                     <span>{{ item.meta.title }}</span>
                 </template>
-
                 <router-link :index="items.name" active-class="active" v-for="(items, index) in item.children" :key="index"
                     :to="items.path"><el-menu-item>{{ items.meta.title }}</el-menu-item></router-link>
             </el-sub-menu>
@@ -24,7 +24,7 @@
 
 <script lang='ts' setup>
 import router from '@/router';
-import { Menu as IconMenu, Message, Setting } from '@element-plus/icons-vue'
+import config from '@/config'
 const defaultOpeneds = ref(['system'])
 
 const routesLink = ref<any>([])

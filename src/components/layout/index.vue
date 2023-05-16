@@ -15,7 +15,12 @@
                 <navbar />
             </el-header>
             <el-main>
-                <transition name="fade-transform" mode="out-in">
+                <KeepAlive v-if="config.router.keepAlive">
+                    <transition name="fade-transform" mode="out-in">
+                        <router-view />
+                    </transition>
+                </KeepAlive>
+                <transition name="fade-transform" mode="out-in" v-else>
                     <router-view />
                 </transition>
             </el-main>
@@ -28,10 +33,10 @@ import config from "@/config";
 import leftLayout from "./leftLayout/index.vue"
 import navbar from "./navbar/index.vue"
 const routeElse = useRoute();
-const timer = setInterval(()=>{
+const timer = setInterval(() => {
     routeElse
-},300)
-onUnmounted(()=>{
+}, 300)
+onUnmounted(() => {
     clearInterval(timer)
 })
 </script>

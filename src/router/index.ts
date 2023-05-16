@@ -61,40 +61,5 @@ router.beforeEach((to, from, next) => {
 		return next('/error');
 	}
 })
-interface RouteMeta {
-	/**
-	 * 页面标题
-	 */
-	title?: string;
-	/**
-	 * 是否在菜单中隐藏
-	 */
-	hidden?: boolean;
-	/**
-	 * 是否在菜单中禁用
-	 */
-	disabled?: boolean;
-	/**
-	 * 是否全屏
-	 */
-	isFullPage?: boolean;
-	/**
-	 * 是否外链，点击后会跳转到这个 url
-	 */
-	url?: string;
-	target?: string;
-	/**
-	 * 页签标题，优先级高于 title
-	 */
-	tabTitle?: string;
-	/**
-	 * 面包屑，不需要手动定义
-	 */
-	breadcrumbs?: RouteRecordRaw[];
-	/**
-	 * 是否在页签中隐藏
-	 */
-	hiddenInTab?: boolean;
-}
 
 export default router

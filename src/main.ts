@@ -5,10 +5,14 @@ import './utils/request';
 
 const app = createApp(App);
 // 注册接口
-import api from '@/api';
-app.use(api);
+import '@/api';
+
 import router from './router';
 app.use(router);
+
+import store from './store'
+app.use(store);
+
 // 全局样式
 import '@/assets/less/root.less'
 // UI导入
