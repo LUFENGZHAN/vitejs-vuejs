@@ -25,9 +25,9 @@ const forDate = reactive({
 const login = async() => {
     if (!forDate.username) return ElMessage.warning('请输入账号') 
     if (!forDate.password) return ElMessage.warning('请输入密码') 
-    // const res = await window.api.user.login(forDate)
-    // sessionStorage.setItem('userinfo',JSON.stringify(res.data))
-    // sessionStorage.setItem('token',res.data.token)
+    const res = await window.api.user.login(forDate)
+    sessionStorage.setItem('userinfo',JSON.stringify(res.data))
+    sessionStorage.setItem('token',res.data.token)
     router.push({ path: '/' })
 }
 </script>
