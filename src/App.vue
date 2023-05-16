@@ -1,8 +1,5 @@
 <template>
-        <keep-alive v-if="config.router.keepAlive">
-            <router-view ><layout/></router-view>
-        </keep-alive>
-        <router-view v-else><layout/></router-view>
+    <layout></layout>
 </template>
 
 <script lang='ts' setup>

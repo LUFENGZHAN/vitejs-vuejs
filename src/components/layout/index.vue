@@ -1,8 +1,10 @@
 <template>
-    <el-container class="layout-container-demo">
+    <router-view v-if="routeElse.meta.layout"></router-view>
+    <el-container class="layout-container-demo" v-else>
         <el-aside width="200px">
             <el-scrollbar>
                 <div class="layout">
+                    <img alt="Vue logo" src="@/assets/imges/logo.png">
                     <p>{{ config.layout.title }}</p>
                 </div>
                 <leftLayout />
@@ -14,7 +16,7 @@
             </el-header>
             <el-main>
                 <transition name="fade-transform" mode="out-in">
-                    <router-view/>
+                    <router-view />
                 </transition>
             </el-main>
         </el-container>
@@ -25,7 +27,12 @@
 import config from "@/config";
 import leftLayout from "./leftLayout/index.vue"
 import navbar from "./navbar/index.vue"
-onMounted(() => {
+const routeElse = useRoute();
+const timer = setInterval(()=>{
+    routeElse
+},300)
+onUnmounted(()=>{
+    clearInterval(timer)
 })
 </script>
   
@@ -38,12 +45,17 @@ onMounted(() => {
         display: flex;
         font-size: 25px;
         align-items: center;
-        background-color: darkgray;
-        justify-content: space-around;
+        background-color: rgba(201, 196, 196, 0.363);
+        justify-content: space-evenly;
 
         &>p {
             padding: 0;
             margin: 0;
+        }
+
+        &>img {
+            width: 40px;
+            height: 40px;
         }
     }
 }
