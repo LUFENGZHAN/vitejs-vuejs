@@ -6,11 +6,11 @@
                     <span>{{ item.meta.title }}</span>
                 </template>
 
-                <router-link :index="items.name" v-for="(items, index) in item.children" :key="index"
+                <router-link :index="items.name" active-class="active" v-for="(items, index) in item.children" :key="index"
                     :to="items.path"><el-menu-item>{{ items.meta.title }}</el-menu-item></router-link>
             </el-sub-menu>
             <template v-else>
-                <router-link :to="item.path">
+                <router-link :to="item.path" active-class="active">
                     <el-menu-item :index="item.name">
                         <template #title>
                             {{ item.meta.title }}
@@ -41,7 +41,16 @@ a {
     color: #000;
 }
 
+:deep(.el-menu-item.is-active) {
+    color: #000;
+}
+.active {
+    :deep(.el-menu-item) {
+        background-color: var(--el-layout-left);
+        color: #fff;
+    }
+}
+
 :deep(.el-sub-menu__title) {
     font-size: var(--font-size);
-}
-</style>
+}</style>

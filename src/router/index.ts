@@ -1,11 +1,11 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 import config from '@/config'
-import  RouterList  from './modules/index'
+import RouterList from './modules/index'
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    name: '/',
+    name: 'index',
     component: () => import('@/components/layout/index.vue'),
     meta: {
       title: '后台管理',
@@ -37,26 +37,19 @@ const routesLayout = import.meta.glob(
 )
 const router = createRouter({
   history: createWebHashHistory(),
-  routes:[...routes,...RouterList.RouterList]
+  routes: [...routes, ...RouterList.RouterList]
 })
 router.beforeEach((to, from, next) => {
   try {
-    if (to.matched && to.matched.length  === 0) {
-      return next('/error')
-    }
-    config.router.is_page = to.fullPath !== '/'
     if (to.meta?.title) document.title = to.meta.title as any
+    console.log(to);
+    // if (to.matched && to.matched.length == 0) {
+    //   return next('/error')
+    // }
     if (config.layout.is_login) {
-      if (sessionStorage.getItem('token')) {
-        next();
-      } else {
-        if (to.path === '/login') {
-          next();
-        } else {
-          next('/login');
-        }
-      }
-    } else {
+      // if (sessionStorage.getItem('token') && !to.name) {
+      //   return next();
+      // }
       next();
     }
   } catch {

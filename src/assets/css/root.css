@@ -1,5 +1,6 @@
 :root {
   --el-layout-header: red;
+  --el-layout-left: red;
   --el-layout-main: #f1f1f1;
   --font-size: 16px;
 }
