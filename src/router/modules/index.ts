@@ -77,7 +77,7 @@ const RouterList: Array<RouteRecordRaw> = [
 			{
 				path: '/seat-reservation/seat-reservation',
 				name: 'SeatReservation',
-				component: () => import('@/views/SeatManagement/SeatManagement.vue'),
+				component: () => import('@/views/SeatReservation/SeatReservation.vue'),
 				meta: {
 					title: '自习室座位管理',
 					hidden: true
