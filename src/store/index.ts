@@ -10,13 +10,12 @@ const store = createStore({
     add (state) {
       state.count++
     }
+  },
+  // 涉及到调用异步 API
+  actions: {
+    increment (context) {
+      context.commit('add')
+    }
   }
 })
-declare global {
-  interface Window {
-    store: typeof store;
-  }
-}
-
-window.store = store
 export default store
