@@ -4,3 +4,7 @@
   --el-layout-main: #f1f1f1;
   --font-size: 16px;
 }
+@font-face {
+  font-family: "title_wide";
+  src: url("@/assets/fonts/title_wide.ttf");
+}

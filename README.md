@@ -1,5 +1,5 @@
 # Vite+TypeScript+Vue.js
-> ## CommonTable
+> ###### vue-echarts+less+element-plus
 ```vue
 <template>
  
@@ -10,6 +10,6 @@
 </script>
 ```
 ### echarts 使用文档
-```
+```js
 https://www.npmjs.com/package/vue-echarts
 ```
