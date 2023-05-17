@@ -79,7 +79,7 @@ const RouterList: Array<RouteRecordRaw> = [
 				name: 'SeatReservation',
 				component: () => import('@/views/SeatReservation/SeatReservation.vue'),
 				meta: {
-					title: '自习室座位管理',
+					title: '座位预约管理',
 					hidden: true
 				},
 			},
