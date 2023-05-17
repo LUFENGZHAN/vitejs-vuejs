@@ -8,6 +8,8 @@ common.interceptors.request.use(
     (config) => { 
         let token = sessionStorage.getItem("token")
         if (token && config.headers) {
+            config.headers['Access-Control-Allow-Origin'] = '*'
+            config.headers['Content-Type'] = 'application/json;charset=utf-8'
             config.headers['token'] = token
         }
         return config;
