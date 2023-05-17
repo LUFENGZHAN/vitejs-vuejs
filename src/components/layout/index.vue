@@ -33,12 +33,6 @@ import config from "@/config";
 import leftLayout from "./leftLayout/index.vue"
 import navbar from "./navbar/index.vue"
 const routeElse = useRoute();
-const timer = setInterval(() => {
-    routeElse
-}, 300)
-onUnmounted(() => {
-    clearInterval(timer)
-})
 </script>
   
 <style scoped lang="less">
