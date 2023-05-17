@@ -1,14 +1,22 @@
 import { createStore } from 'vuex'
 
-export default createStore({
-  state: {
-  },
-  getters: {
+const store = createStore({
+  state () {
+    return {
+      count: 0
+    }
   },
   mutations: {
-  },
-  actions: {
-  },
-  modules: {
+    add (state) {
+      state.count++
+    }
   }
 })
+declare global {
+  interface Window {
+    store: typeof store;
+  }
+}
+
+window.store = store
+export default store
