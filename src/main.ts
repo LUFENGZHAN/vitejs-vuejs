@@ -24,5 +24,5 @@ for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
     app.component(key, component)
 }
 
-app.use(ElementPlus, { size: 'small', zIndex: 3000 })
+app.use(ElementPlus)
 app.mount('#app');

@@ -6,5 +6,6 @@ export default{
     layout:{
         title:'后台管理', //标题
         is_ion:true,// 是否显示图标
+        screen:false,//是否是大屏
     }
 }
