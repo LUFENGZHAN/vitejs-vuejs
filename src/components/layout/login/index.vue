@@ -16,6 +16,8 @@
     
 <script lang='ts' setup>
 import { useRouter } from 'vue-router';
+import routers from '@/router';
+import store from '@/store';
 import { ElMessage } from 'element-plus'
 const router = useRouter()
 const forDate = reactive({
@@ -28,7 +30,8 @@ const login = async() => {
     const res = await window.api.user.login(forDate)
     sessionStorage.setItem('userinfo',JSON.stringify(res.data))
     sessionStorage.setItem('token',res.data.token)
-    sessionStorage.setItem('id',res.data.userId)
+    sessionStorage.setItem('toutes',res.data.userId)
+    store.commit('setrouterState',routers.options.routes.filter(v => !v.meta.layout))
     router.push({ path: '/' })
 }
 </script>

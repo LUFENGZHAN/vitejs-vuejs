@@ -1,6 +1,6 @@
 <template>
     <el-menu :default-openeds="defaultOpeneds">
-        <template v-for="(item, i) in routesLink" :key="i">
+        <template v-for="(item, i) in store.state.routersList" :key="i">
             <el-sub-menu v-if="item.children && item.children.length > 0 && item.meta.hidden" :index="item.name">
                 <template #title>
                     <el-icon v-if="config.layout.is_ion">
@@ -26,15 +26,13 @@
 </template>
 
 <script lang='ts' setup>
+import routers from '@/router';
 import store from '@/store';
-import router from '@/router';
 import config from '@/config'
 const defaultOpeneds = ref(['system'])
 
-const routesLink = ref<any>([])
 onMounted(() => {
-    routesLink.value =  router.options.routes.filter(v => !v.meta.layout) 
-    store.commit('setrouterState',routesLink.value)
+    store.commit('setrouterState', routers.options.routes.filter(v => !v.meta.layout))
 })
 </script>
 

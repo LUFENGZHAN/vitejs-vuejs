@@ -5,6 +5,7 @@ const store = createStore({
     return {
       count: 0,
       is_id:null,
+      routersList:[],
       is_page: [
         ['系统管理员', '图书馆教师账号管理', '自习室管理员', '学生账号管理', '自习室座位管理', '座位预约管理'],
         ['系统管理员', '自习室管理员'],
@@ -17,7 +18,7 @@ const store = createStore({
       state.count++
     },
     setrouterState(state, routers) {
-      state.is_id = window.sessionStorage.getItem('id')
+      state.is_id = window.sessionStorage.getItem('toutes')
       let router = []
       routers.forEach( (item:any)=>{
         Object.defineProperty(item, 'children',item.children.map((value:any)=>{
@@ -31,6 +32,7 @@ const store = createStore({
           item.meta.hidden = false
         }
       })
+      state.routersList = routers
     }
   },
   // 涉及到调用异步 API
