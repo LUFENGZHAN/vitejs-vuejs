@@ -1,7 +1,7 @@
 <template>
     <el-menu :default-openeds="defaultOpeneds">
         <template v-for="(item, i) in routesLink" :key="i">
-            <el-sub-menu v-if="item.children && item.children.length > 0" :index="item.name">
+            <el-sub-menu v-if="item.children && item.children.length > 0 && item.meta.hidden" :index="item.name">
                 <template #title>
                     <el-icon v-if="config.layout.is_ion">
                         <Menu />
@@ -26,18 +26,15 @@
 </template>
 
 <script lang='ts' setup>
+import store from '@/store';
 import router from '@/router';
 import config from '@/config'
 const defaultOpeneds = ref(['system'])
 
 const routesLink = ref<any>([])
-const is_page = ref([
-    ['系统管理员', '图书馆教师账号管理', '自习室管理员', '学生账号管理', '自习室座位管理', '座位预约管理'],
-    ['系统管理员', '自习室管理员'],
-    ['系统管理员', '学生账号管理'],
-])
-onMounted(async() => {
-    routesLink.value = await router.options.routes.filter(v => !v.meta.layout)    
+onMounted(() => {
+    routesLink.value =  router.options.routes.filter(v => !v.meta.layout) 
+    store.commit('setrouterState',routesLink.value)
 })
 </script>
 

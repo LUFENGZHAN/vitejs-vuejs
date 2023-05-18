@@ -28,6 +28,7 @@ const login = async() => {
     const res = await window.api.user.login(forDate)
     sessionStorage.setItem('userinfo',JSON.stringify(res.data))
     sessionStorage.setItem('token',res.data.token)
+    sessionStorage.setItem('id',res.data.userId)
     router.push({ path: '/' })
 }
 </script>
