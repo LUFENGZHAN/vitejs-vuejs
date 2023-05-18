@@ -21,7 +21,7 @@ const store = createStore({
       let router = []
       routers.forEach( (item:any)=>{
         Object.defineProperty(item, 'children',item.children.map((value:any)=>{
-          if (!state.is_page[state.is_id].includes(value.meta.title)) {
+          if (!state.is_page[state.is_id || 0].includes(value.meta.title)) {
             value.meta.hidden = false
           }
           return value
