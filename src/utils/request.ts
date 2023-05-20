@@ -24,7 +24,8 @@ common.interceptors.response.use(
                 window.sessionStorage.clear()
                 useRouter.push({path:'/login'})
             }
-            return ElMessage.error(config.data.message) 
+            ElMessage.error(config.data.message) 
+            return Promise.reject(config.data.message)
         }
     }
 )
